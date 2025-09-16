@@ -15,14 +15,8 @@
     }
 
     /* THEME COLORS */
-    body.dark {
-      background:#0e2038;
-      color:#f5f7fa;
-    }
-    body.light {
-      background:#f5f7fa;
-      color:#1b2a41;
-    }
+    body.dark { background:#0e2038; color:#f5f7fa; }
+    body.light { background:#f5f7fa; color:#1b2a41; }
 
     /* Header with hero background */
     header {
@@ -31,7 +25,7 @@
       background:linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.7)),
                  url('aircraft-hero.jpg') no-repeat center/cover;
     }
-    header img { max-height:100px; margin-bottom:20px; }
+    header img { max-height:120px; margin-bottom:20px; }
     header h1 { font-size:2.4rem; margin:10px 0; font-weight:700; }
     header p { font-size:1.1rem; max-width:760px; margin:0 auto; }
 
@@ -55,12 +49,12 @@
     .card::before {
       content:"";
       position:absolute; bottom:15px; right:15px;
-      width:180px; height:180px;
+      width:200px; height:200px;
       background:url('aircraft-1.svg') no-repeat center/contain;
-      opacity:0.15; z-index:1;
+      opacity:0.25; z-index:1;
     }
     .card:hover { transform:translateY(-6px); }
-    .card img { max-height:120px; margin-bottom:20px; position:relative; z-index:2; }
+    .card img { max-width:140px; margin-bottom:20px; position:relative; z-index:2; }
     .card h2 { font-size:1.3rem; margin-bottom:12px; position:relative; z-index:2; }
     .card p { font-size:.95rem; margin-bottom:20px; position:relative; z-index:2; opacity:.9; }
     .btn {
@@ -75,17 +69,19 @@
     /* Footer */
     footer {
       text-align:center; padding:40px 20px; font-size:.85rem;
-      position:relative; overflow:hidden;
+      position:relative; overflow:hidden; border-top:1px solid rgba(255,255,255,0.15);
     }
     body.dark footer { background:#0a1830; color:#fff; }
-    body.light footer { background:#e9eef5; color:#1b2a41; }
+    body.light footer { background:#e9eef5; color:#1b2a41; border-top:1px solid #ccc; }
     footer::before {
       content:"";
       position:absolute; top:0; left:0; right:0; bottom:0;
       background:url('aircraft-2.svg') no-repeat center bottom;
-      background-size:300px auto; opacity:0.12; z-index:1;
+      background-size:320px auto; opacity:0.18; z-index:1;
     }
     footer span { position:relative; z-index:2; }
+    footer a { color:inherit; text-decoration:none; font-weight:600; }
+    footer a:hover { text-decoration:underline; }
 
     /* Theme toggle button */
     .theme-toggle {
@@ -93,14 +89,23 @@
       background:#1d6eff; color:#fff; border:none;
       padding:10px 16px; border-radius:8px;
       cursor:pointer; font-size:.9rem;
-      transition:all .3s;
+      transition:all .3s; display:flex; align-items:center; gap:6px;
       z-index:999;
     }
     .theme-toggle:hover { background:#3d86ff; }
+
+    /* Responsive */
+    @media (max-width:700px) {
+      header { padding:60px 20px; }
+      main { padding:30px 15px; gap:20px; }
+      .card { max-width:100%; width:100%; }
+    }
   </style>
 </head>
 <body class="dark">
-  <button class="theme-toggle" onclick="toggleTheme()">Switch Theme</button>
+  <button class="theme-toggle" onclick="toggleTheme()">
+    <span id="theme-icon">🌙</span> <span id="theme-text">Switch to Light Mode</span>
+  </button>
 
   <header>
     <img src="companylogo.svg" alt="B M Aerospace Logo" />
@@ -122,13 +127,25 @@
     </div>
   </main>
   <footer>
-    <span>© B M Aerospace | abdulhakim@bm-aerospace.xyz</span>
+    <span>© B M Aerospace | <a href="mailto:abdulhakim@bm-aerospace.xyz">abdulhakim@bm-aerospace.xyz</a></span>
   </footer>
 
   <script>
     function toggleTheme() {
-      document.body.classList.toggle('dark');
-      document.body.classList.toggle('light');
+      const body = document.body;
+      const icon = document.getElementById("theme-icon");
+      const text = document.getElementById("theme-text");
+
+      body.classList.toggle('dark');
+      body.classList.toggle('light');
+
+      if (body.classList.contains("dark")) {
+        icon.textContent = "🌙";
+        text.textContent = "Switch to Light Mode";
+      } else {
+        icon.textContent = "☀️";
+        text.textContent = "Switch to Dark Mode";
+      }
     }
   </script>
 </body>
