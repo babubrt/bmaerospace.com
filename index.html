@@ -1,120 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>B M Aerospace — Independent Aviation Consultancy</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>B M Aerospace — Connecting Airlines & Suppliers</title>
+
+  <!-- SEO Meta -->
+  <meta name="description" content="Independent aviation consultancy serving global airlines, MROs, and suppliers — connecting aviation businesses worldwide with expertise and trust." />
+  <meta name="keywords" content="aviation consultancy, aircraft parts supplier, MRO, Biman, aerospace, airlines, aviation partner" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:title" content="B M Aerospace — Connecting Airlines & Suppliers" />
+  <meta property="og:description" content="Independent aviation consultancy serving global airlines, MROs, and suppliers — connecting aviation businesses worldwide with expertise and trust." />
+  <meta property="og:image" content="https://bmaerospace.com/companylogo.png" />
+  <meta property="og:url" content="https://bmaerospace.com" />
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter / WhatsApp -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="B M Aerospace — Connecting Airlines & Suppliers" />
+  <meta name="twitter:description" content="Independent aviation consultancy serving global airlines, MROs, and suppliers — connecting aviation businesses worldwide with expertise and trust." />
+  <meta name="twitter:image" content="https://bmaerospace.com/companylogo.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="companylogo.png" type="image/png" />
+
+  <!-- Styles -->
   <style>
-    /* Base reset */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
+      margin: 0;
       font-family: Arial, sans-serif;
-      line-height: 1.6;
-      transition: background 0.3s, color 0.3s;
-    }
-
-    /* Light theme */
-    body.light {
-      background: #f5f7fa;
-      color: #222;
-    }
-
-    /* Dark theme */
-    body.dark {
-      background: #0b1a33;
+      background-color: #0d1b2a;
       color: #fff;
+      text-align: center;
     }
 
-    /* Hero section */
-    .hero {
+    header {
       position: relative;
-      background: url("aircraft-hero.jpg") no-repeat center center/cover;
-      height: 55vh;
+      background: url('aircraft-hero.jpg') no-repeat center center/cover;
+      height: 60vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      text-align: center;
       color: #fff;
     }
 
-    .hero::after {
+    header::before {
       content: "";
       position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.45); /* overlay for readability */
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.55); /* dark overlay for text visibility */
     }
 
-    .hero-content {
+    header h1, header p, header img {
       position: relative;
-      z-index: 2;
+      z-index: 1;
     }
 
-    .hero img {
+    header img {
       max-width: 160px;
-      margin-bottom: 1rem;
+      margin-bottom: 15px;
     }
 
-    .hero h1 {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .hero p {
-      font-size: 1.1rem;
-      max-width: 650px;
-      margin: auto;
-    }
-
-    /* Cards section */
-    .cards {
+    .container {
       display: flex;
       justify-content: center;
-      gap: 2rem;
-      padding: 3rem 1rem;
+      gap: 30px;
+      padding: 40px;
       flex-wrap: wrap;
     }
 
     .card {
-      background: rgba(255, 255, 255, 0.95);
-      border-radius: 12px;
-      padding: 2rem;
-      width: 300px;
-      text-align: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      background-color: #1b263b;
+      padding: 25px;
+      border-radius: 10px;
+      width: 280px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.3);
       transition: transform 0.3s;
     }
 
-    body.dark .card {
-      background: #13294b;
-    }
-
     .card:hover {
-      transform: translateY(-6px);
+      transform: translateY(-8px);
     }
 
     .card img {
       max-width: 120px;
-      margin-bottom: 1rem;
-    }
-
-    .card h2 {
-      margin-bottom: 0.8rem;
-      font-size: 1.3rem;
-    }
-
-    .card p {
-      font-size: 0.95rem;
-      margin-bottom: 1.2rem;
+      margin-bottom: 15px;
     }
 
     .btn {
       display: inline-block;
-      padding: 0.6rem 1.2rem;
+      margin-top: 15px;
+      padding: 10px 20px;
       background: #007bff;
-      color: #fff;
+      color: white;
       text-decoration: none;
-      border-radius: 6px;
+      border-radius: 5px;
       transition: background 0.3s;
     }
 
@@ -122,38 +104,55 @@
       background: #0056b3;
     }
 
-    /* Theme switch button */
+    footer {
+      padding: 20px;
+      background: #0a192f;
+      color: #aaa;
+      font-size: 14px;
+    }
+
+    /* Light theme */
+    body.light {
+      background-color: #f4f4f9;
+      color: #333;
+    }
+
+    body.light .card {
+      background-color: #fff;
+      color: #333;
+    }
+
+    body.light footer {
+      background: #ddd;
+      color: #000;
+    }
+
     .theme-toggle {
       position: fixed;
-      top: 1rem;
-      right: 1rem;
+      top: 10px;
+      right: 10px;
+      padding: 6px 12px;
       background: #007bff;
       color: #fff;
       border: none;
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
+      border-radius: 4px;
       cursor: pointer;
-      font-size: 0.9rem;
       z-index: 1000;
     }
   </style>
 </head>
-<body class="dark">
+<body>
   <button class="theme-toggle" onclick="toggleTheme()">Switch Theme</button>
 
-  <!-- Hero section -->
-  <section class="hero">
-    <div class="hero-content">
-      <img src="companylogo.svg" alt="B M Aerospace Logo">
-      <h1>Welcome to B M Aerospace</h1>
-      <p>Independent aviation consultancy serving global airlines, MROs, and suppliers — plus our personal blog <strong>Heart to Heart</strong> for stories and reflections.</p>
-    </div>
-  </section>
+  <header>
+    <img src="companylogo.png" alt="B M Aerospace Logo">
+    <h1>Welcome to B M Aerospace</h1>
+    <p>Independent aviation consultancy serving global airlines, MROs, and suppliers — plus our personal blog <strong>Heart to Heart</strong> for stories and reflections.</p>
+  </header>
 
-  <!-- Cards section -->
-  <section class="cards">
+  <div class="container">
     <div class="card">
-      <img src="companylogo.svg" alt="Company Logo">
+      <img src="companylogo.png" alt="Company Logo">
       <h2>Corporate Website</h2>
       <p>Explore our consultancy services, supplier partnerships, and aviation expertise.</p>
       <a href="https://www.bm-aerospace.xyz" class="btn">Enter Company Site</a>
@@ -164,12 +163,15 @@
       <p>Thoughtful writing on life, careers, technology, and social issues from Abdul.</p>
       <a href="https://blog.bm-aerospace.xyz" class="btn">Visit Blog</a>
     </div>
-  </section>
+  </div>
+
+  <footer>
+    © B M Aerospace | abdulhakim@bm-aerospace.xyz
+  </footer>
 
   <script>
     function toggleTheme() {
-      document.body.classList.toggle("light");
-      document.body.classList.toggle("dark");
+      document.body.classList.toggle('light');
     }
   </script>
 </body>
